@@ -22,11 +22,7 @@ export default {
 </script>
 
 <template>
-    <TheHeader></TheHeader>
-
-    <TheMain></TheMain>
-
-    <TheFooter></TheFooter>
+   <h1>pagina component</h1>
 </template>
 
 <style scoped lang="scss">
