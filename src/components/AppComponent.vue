@@ -22,9 +22,11 @@ export default {
 </script>
 
 <template>
-    <div>
-        <h1>Sono un componente!</h1>
-    </div>
+    <TheHeader></TheHeader>
+
+    <TheMain></TheMain>
+
+    <TheFooter></TheFooter>
 </template>
 
 <style scoped lang="scss">
