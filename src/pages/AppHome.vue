@@ -7,8 +7,8 @@ export default {
 <template>
     <div class="container">
         <div class="row">
-            <h1 class="mb-3">Homepage</h1>
-           
+            <h1 class="mb-3">AppHome.vue</h1>
+
         </div>
     </div>
 </template>

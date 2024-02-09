@@ -19,8 +19,8 @@ export default {
 <template>
     <div class="container">
         <div class="row">
-            <h1 class="mb-3">Eventi</h1>
-            <EventCard v-for="evento in store.eventList" :item="store.eventList[0]" />
+            <h1 class="mb-3">EventList.Vue</h1>
+            <EventCard v-for="evento in store.eventList" :item="store.eventList" />
         </div>
     </div>
 </template>
