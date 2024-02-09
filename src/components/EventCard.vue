@@ -1,22 +1,27 @@
 <script>
 export default {
-  name: "EventCard",
-  props: ["item"]
+    name: "EventCard",
 }
 </script>
 
 <template>
-  <div class="container">
-    <div class="row g-3">
-      <div class="card col-4" v-for="event in this.store.eventlist">
-        <h3 class="card-title">{{ event.name }}</h3>
-        <h5>{{ event.date }}</h5>
-        <h6 class="border">Tickets restanti: {{ event.available_tickets }}</h6>
-      </div>
+    <div class="col-md-4 gy-4">
+        <div class="card h-100">
+            <div class="card-header">{{ item.date }}</div>
+            <div class="card-body">
+                <h5 class="card-title">{{ item.name }}</h5>
+                <h6 class="card-subtitle mb-2 text-muted">
+                    {{ item.user ? item.user.name : "Utente sconosciuto" }}
+                </h6>
+                <p class="card-text">Restano <b>{{ item.available_tickets }}</b> biglietti disponibili.
+                </p>
+            </div>
+            <div class="card-footer text-center">
+                <router-link :to="{ name: 'event-detail', params: { id: item.id } }" class="btn btn-primary">
+                    <font-awesome-icon icon="fa-solid fa-circle-info" class="me-2" />
+                    <span>Dettagli</span>
+                </router-link>
+            </div>
+        </div>
     </div>
-  </div>
-  <button class="btn btn-primary">
-    <font-awesome-icon icon="fa-solid fa-home" class="me-1" />
-    <span>Primary button</span>
-  </button>
 </template>
