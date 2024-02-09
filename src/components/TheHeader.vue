@@ -1,28 +1,35 @@
 <script>
-import { store } from "../store.js" //state management
-import register from "../debug" //per debuggare il componente da console
-
 export default {
-    name: "AppComponent",
+    name: "TheHeader",
     data() {
         return {
-            store
+            menuItems: [
+                {
+                    routeName: "home",
+                    label: "Homepage"
+                },
+                {
+                    routeName: "about",
+                    label: "Chi siamo"
+                },
+                {
+                    routeName: "events",
+                    label: "Eventi"
+                }
+            ]
         }
     },
-    methods: {
-        doThings() {
-            console.log("AppComponent does things");
-        }
-    },
-    mounted() {
-        register(this); //per debuggare il componente da console
-        this.doThings();
-    }
 }
 </script>
 
 <template>
-   <h1>pagina component</h1>
+    <header>
+        <h1>HEADER</h1>
+        <router-link :to="{ name: 'events' }" class="nav-link">Vai agli eventi</router-link>
+        <li class="nav-item" v-for="(item, index) in menuItems" :key="index">
+            <router-link :to="{ name: item.routeName }" class="nav-link">{{ item.label }}</router-link>
+        </li>
+    </header>
 </template>
 
 <style scoped lang="scss">
