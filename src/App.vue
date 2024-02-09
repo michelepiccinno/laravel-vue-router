@@ -2,7 +2,6 @@
 import axios from 'axios'; //importo Axios
 import { store } from "./store.js" //state management
 import TheHeader from "./components/TheHeader.vue"
-import EventCard from "./components/EventCard.vue"
 
 export default {
 	components: {
@@ -19,12 +18,18 @@ export default {
 	},
 	methods: {
 		getEventList() {
-			//facciamo chiamata api e stampiamo i dati in consolle (manca il controllo errori)
+
 			let url = this.store.apiUrl + this.store.apiEventEndpoint;
+
 			axios.get(url).then(risultato => {
-				//console.log(risultato);
-				console.log(risultato.data.results);
-				this.store.eventlist = risultato.data.results;
+				if (risultato.status === 200 && risultato.data.success) {
+					console.log(risultato.data.payload);
+					this.store.eventList = risultato.data.payload;
+				} else {
+					//ToDo: distinguere il motivo dell'else.
+					//es. controllare statusCode, presenza e veridicità di data.success
+					console.error("Ops... qualcosa è andato storto");
+				}
 			}).catch(errore => {
 				console.error(errore);
 			});
@@ -38,10 +43,9 @@ export default {
 	<TheHeader></TheHeader>
 
 	<main>
-	<router-view></router-view>
+		<RouterView />
 	</main>
 
-	<TheFooter></TheFooter>
 </template>
 
 <style lang="scss">
