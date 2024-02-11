@@ -23,8 +23,8 @@ export default {
 
 			axios.get(url).then(risultato => {
 				if (risultato.status === 200 && risultato.data.success) {
-					console.log(risultato.data.results);
-					this.store.eventList = risultato.data.results;
+					console.log(risultato.data.payload);
+					this.store.eventList = risultato.data.payload;
 				} else {
 					//ToDo: distinguere il motivo dell'else.
 					//es. controllare statusCode, presenza e veridicità di data.success
