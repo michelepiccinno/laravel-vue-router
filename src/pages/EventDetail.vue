@@ -57,6 +57,7 @@ export default {
                     <p class="card-text text-muted">{{ evento?.date }}</p>
                     <p class="card-text">Biglietti disponibili: {{ evento?.available_tickets }}</p>
                     <p class="card-text">Sei loggato come: {{ evento?.user ? evento?.user.name : "Utente sconosciuto" }}</p>
+                    <span v-for="tag in evento?.tags" class="badge text-bg-warning m-1">{{ tag.name }}</span>
                 </div>
                 <router-link :to="{ name: 'events' }" class="btn btn-primary mb-1">
                     <span>Torna indietro</span>
@@ -67,7 +68,7 @@ export default {
 </template>
 
 <style scoped>
-.loading_text{
+.loading_text {
     font-size: 5rem;
     color: yellow;
     background-color: blue;
